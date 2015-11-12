@@ -33,11 +33,12 @@ begin
 U1: ula_control port map (ula_op,inst_bc,ula_op_out);
 process(clk_bc)
 begin
-if(clk_bc'event and clk_bc = '1') then
+if rising_edge clk then
 	if(op_bc = "000000") then --add ou slt
 		reg_dest_bc <= '1';  --mux : seleciona o que vai para o rd
 		ula_op <= "10";
 		orig_ula <= '0';
+		branch <= '0';
 	elsif(op_bc = "000100") then --se for BEQ
 		reg_dest_bc <= '0'; --devia ser X
 		ula_op <= "01";
@@ -46,13 +47,14 @@ if(clk_bc'event and clk_bc = '1') then
 	elsif(op_bc = "001000")then  --addi
 		ula_op_bc <= "010";
 		orig_ula <= '1';
+		branch <= '0';
 	end if;
 	if(clear_bc = '1')then
 		w_bc <= '1';
 		r_bc <= '0';
-   else
-      w_bc <= '0';
-	  r_bc <= '1';
+   	else
+		 w_bc <= '0';
+	  	r_bc <= '1';
 	end if;
 end if;
 
