@@ -79,23 +79,13 @@ if rising_edge(clk) then
 		elsif (endereco(0 to 5) /= "000000") then
 			if (endereco(0 to 5) = reg1(0 to 5)) then
 				instrucao <= reg1;
-				op <= reg1(0 to 5);
-				funct <= reg1(26 to 31);
 			elsif (endereco(0 to 5) = reg2(0 to 5)) then
 				instrucao <= reg2;
-				op <= reg2(0 to 5);
-				funct <= reg2(26 to 31);
 			elsif (endereco(0 to 5) = reg3(0 to 5)) then
 				instrucao <= reg3;
-				op <= reg3(0 to 5);
-				funct <= reg3(26 to 31);
 			elsif (endereco(0 to 5) = reg4(0 to 5)) then
 				instrucao <= reg4;
-				op <= reg4(0 to 5);
-				funct <= reg4(26 to 31);
 			else instrucao <= "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"; --Saida quando a instrução é invalida, não exite na memoria
-					op <= "UUUUUU";
-					funct <= "UUUUUU";
 			end if;
 		end if; --Fim do Modo Leitura
 	end if;
