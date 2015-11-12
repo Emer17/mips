@@ -10,12 +10,13 @@ port(
 	A : in STD_LOGIC_VECTOR(0 to 31);
 	B : in STD_LOGIC_VECTOR(0 to 31);
 	op : in STD_LOGIC_VECTOR(0 to 2);
-	--zero : out bit;
+	zero : out bit;
 	saida: out STD_LOGIC_VECTOR(0 to 31)
 	);
 end ula;
 
 architecture arch of ula is
+signal aux_zero : STD_LOGIC_VECTOR(0 to 31);
 begin
 process(clk)
 begin
@@ -30,16 +31,17 @@ if rising_edge (clk) then
 		end if;
 	elsif(op = "110")then --beq
 	saida <= A-B;
+	aux_zero <= A-B;
 	end if;
 end if;
 
 end process;
---process(saida) --Verifica zero, usado para a Instrução Beq
---begin
---	if(saida="00000000000000000000000000000000") then
---		zero = '1';
---	else
---		zero = '0';
---	end if;
---end process;
+process(aux_zero) --Verifica zero, usado para a Instrução Beq
+begin
+	if(aux_zero="00000000000000000000000000000000") then
+		zero <= '1';
+	else
+		zero <= '0';
+	end if;
+end process;
 end arch;
