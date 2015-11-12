@@ -9,7 +9,6 @@ port(
    endereco : in STD_LOGIC_VECTOR(0 to 31);   --ver clock e w,r
    clk,reset,w_mem,r_mem : in bit;
    clear_mem : out bit;
-   op, funct : out std_logic_vector(0 to 5);
    instrucao : out STD_LOGIC_VECTOR(0 to 31)
 );
 end memoria;
@@ -69,23 +68,13 @@ if rising_edge(clk) then
 		if (endereco(0 to 5) = "000000")then
 			if (endereco(26 to 31) = reg1(26 to 31)) then
 				instrucao <= reg1;
-				op <= reg1(0 to 5);
-				funct <= reg1(26 to 31);
 			elsif (endereco(26 to 31) = reg2(26 to 31)) then
 				instrucao <= reg2;
-				op <= reg2(0 to 5);
-				funct <= reg2(26 to 31);
 			elsif (endereco(26 to 31) = reg3(26 to 31)) then
 				instrucao <= reg3;
-				op <= reg2(0 to 5);
-				funct <= reg2(26 to 31);
 			elsif (endereco(26 to 31) = reg4(26 to 31)) then
 				instrucao <= reg4;
-				op <= reg4(0 to 5);
-				funct <= reg4(26 to 31);
 			else instrucao <= "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"; --Saida quando a instrução é invalida, não exite na memoria
-					op <= "UUUUUU";
-					funct <= "UUUUUU";
 			end if;
 		elsif (endereco(0 to 5) /= "000000") then
 			if (endereco(0 to 5) = reg1(0 to 5)) then
