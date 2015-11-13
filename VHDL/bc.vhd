@@ -7,7 +7,7 @@ use IEEE.STD_LOGIC_ARITH.all;
 entity bc is
 port(
 	clk_bc,clear_bc : in bit;
-	inst_bc : in STD_LOGIC_VECTOR(0 to 5);
+	inst_bc : in STD_LOGIC_VECTOR(0 to 5);--Funct
 	op_bc : in STD_LOGIC_VECTOR(0 to 5);
 	reg_dest_bc,orig_ula,w_bc,r_bc : out bit;
 	branch : out bit;-- Usado no mux2x1 para salto Beq
@@ -33,7 +33,7 @@ begin
 U1: ula_control port map (ula_op,inst_bc,ula_op_out);
 process(clk_bc)
 begin
-if rising_edge clk then
+if rising_edge(clk_bc) then
 	if(op_bc = "000000") then --add ou slt
 		reg_dest_bc <= '1';  --mux : seleciona o que vai para o rd
 		ula_op <= "10";
