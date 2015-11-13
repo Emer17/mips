@@ -23,6 +23,7 @@ signal ula_op_out : STD_LOGIC_VECTOR(0 to 2);
 --component
 component ula_control
 port(
+   clk : in bit;
    op_cont : in STD_LOGIC_VECTOR(0 to 1);
    inst_cont : in STD_LOGIC_VECTOR(0 to 5);
    ula_op_cont : out STD_LOGIC_VECTOR(0 to 2)
@@ -30,7 +31,7 @@ port(
 end component;
 
 begin
-U1: ula_control port map (ula_op,inst_bc,ula_op_out);
+U1: ula_control port map (clk_bc,ula_op,inst_bc,ula_op_out);
 process(clk_bc)
 begin
 if rising_edge(clk_bc) then
