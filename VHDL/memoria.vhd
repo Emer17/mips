@@ -29,66 +29,28 @@ if rising_edge(clk) then
 		reg4 <= "00000000000000000000000000000000";
 		clear_mem <= '1';
 	elsif (w_mem = '1') then --Inicio do Modo Escrita
-		if (endereco(0 to 5) = "000000")then
-			if (reg1 = "00000000000000000000000000000000") then
-				reg1 <= endereco;
-			elsif (reg2 = "00000000000000000000000000000000") then
-				if (endereco /= reg1) then
-					reg2 <= endereco;
-				end if;
-			elsif (reg3 = "00000000000000000000000000000000") then
-				if (endereco /= reg1 and endereco /= reg2) then
-					reg3 <= endereco;
-				end if;
-			elsif (reg4 = "00000000000000000000000000000000") then
-				if(endereco /= reg1 and endereco /= reg2 and endereco /= reg3)then
-					reg4 <= endereco;
-					clear_mem <= '0';
-				end if;
-			end if;
-		elsif (endereco(0 to 5) /= "000000") then
-			if(reg1 = "00000000000000000000000000000000")then
-				reg1 <= endereco;
-			elsif(reg2 = "00000000000000000000000000000000")then
-				if(endereco /= reg1)then
-					reg2 <= endereco;
-				end if;
-			elsif(reg3 = "00000000000000000000000000000000")then
-				if (endereco /= reg1 and endereco /= reg2) then
-					reg3 <= endereco;
-				end if;
-			elsif(reg4 = "00000000000000000000000000000000")then
-				if(endereco /= reg1 and endereco /= reg2 and endereco /= reg3)then
-					reg4 <= endereco;
-					clear_mem <= '0';
-				end if;
-			end if;
+		if (reg1 = "00000000000000000000000000000000") then
+			reg1 <= endereco;
+		elsif (reg2 = "00000000000000000000000000000000") then
+			reg2 <= endereco;
+		elsif (reg3 = "00000000000000000000000000000000") then
+			reg3 <= endereco;
+		elsif (reg4 = "00000000000000000000000000000000") then
+			reg4 <= endereco;
+			clear_mem <= '0';
 		end if; --Fim do Modo Escrita
 	elsif (r_mem = '1')	then --Inicio do Modo Leitura
-		if (endereco(0 to 5) = "000000")then
-			if (endereco(26 to 31) = reg1(26 to 31)) then
-				instrucao <= reg1;
-			elsif (endereco(26 to 31) = reg2(26 to 31)) then
-				instrucao <= reg2;
-			elsif (endereco(26 to 31) = reg3(26 to 31)) then
-				instrucao <= reg3;
-			elsif (endereco(26 to 31) = reg4(26 to 31)) then
+		if (endereco(26 to 31) = "000000")then
+			instrucao <= reg1;
+		elsif (endereco(26 to 31) = "000100") then
+			instrucao <= reg2;
+		elsif (endereco(26 to 31) = "001000") then
+			instrucao <= reg3;
+		elsif (endereco(26 to 31) = "010000") then
 				instrucao <= reg4;
-			else instrucao <= "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"; --Saida quando a instrução é invalida, não exite na memoria
-			end if;
-		elsif (endereco(0 to 5) /= "000000") then
-			if (endereco(0 to 5) = reg1(0 to 5)) then
-				instrucao <= reg1;
-			elsif (endereco(0 to 5) = reg2(0 to 5)) then
-				instrucao <= reg2;
-			elsif (endereco(0 to 5) = reg3(0 to 5)) then
-				instrucao <= reg3;
-			elsif (endereco(0 to 5) = reg4(0 to 5)) then
-				instrucao <= reg4;
-			else instrucao <= "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"; --Saida quando a instrução é invalida, não exite na memoria
-			end if;
-		end if; --Fim do Modo Leitura
-	end if;
+		else instrucao <= "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"; --Saida quando a instrução é invalida, não exite na memoria
+		end if;
+	end if; --Fim do Modo Leitura
 end if;
 end process;
 end arch;

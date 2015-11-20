@@ -151,12 +151,15 @@ U11: mux2x1 port map(sel_zero,pc_out4,pc_out8,pc_in);
 process(clk_bo)
 begin
 if rising_edge(clk_bo) then
-	--if(w_bo = '1') then
+	if(w_bo = '1') then
 		ender_mem <= ender_bo;
-	--else
-		--ender_mem <= pc_out;
-	--end if;
+	else
+		ender_mem <= pc_out;
+	end if;
 	sel_zero <= zero_ula and branch_bo;
+	clear_mem <= clear_bc;
+	op_bo <= op_bc_out;
+	funct_ula_bo <= func_bc_out;
 end if;
 
 end process;

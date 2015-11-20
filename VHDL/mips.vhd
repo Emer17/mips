@@ -18,6 +18,7 @@ signal op1 : STD_LOGIC_VECTOR(0 to 5);
 signal inst1 : STD_LOGIC_VECTOR(0 to 5); --arrumar depois
 signal r1,w1,reg1,orig1 : bit;
 signal ula_op : STD_LOGIC_VECTOR (0 to 2);
+signal branch_bc : bit;
 
 --component
 component bc
@@ -26,6 +27,7 @@ port(
    inst_bc : in STD_LOGIC_VECTOR(0 to 5);
    op_bc : in STD_LOGIC_VECTOR(0 to 5);
    reg_dest_bc,orig_ula_bc,w_bc,r_bc : out bit;
+   branch : out bit;-- Usado no mux2x1 para salto Beq
    ula_op_bc : out STD_LOGIC_VECTOR(0 to 2)
 );
 end component;
@@ -44,7 +46,7 @@ end component;
 
 begin
 --port map
-U1: bc port map (clk,inst1,op1,reg1,orig1,w1,r1,ula_op);
+U1: bc port map (clk,inst1,op1,reg1,orig1,w1,r1,branch_bc,ula_op);
 U2: bo port map (clk,reg1,orig1,w1,r1,ula_op,ender,valor,op1,inst1);
 
 end arch;
