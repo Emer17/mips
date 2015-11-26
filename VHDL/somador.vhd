@@ -13,11 +13,11 @@ end entity;
 
 architecture arc_somador of somador is
 begin
-process(clk)
-begin
-	if rising_edge(clk) then
+--process--(clk)
+--begin
+	--if rising_edge(clk) then
 		saida <= pc + 4;
-	end if;
-end process;
+	--end if;
+--end process;
 
 end arc_somador;

@@ -14,15 +14,15 @@ end extensor;
 
 architecture arch of extensor is
 begin
-process(clk)
+process--(clk)
 begin
-if rising_edge(clk) then
+--if rising_edge(clk) then
    if(entrada(0) = '0')then
       saida <= "0000000000000000"&entrada;
    else
       saida <= "1111111111111111"&entrada;
    end if;
-end if;
+--end if;
 
 end process;
 end arch;

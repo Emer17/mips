@@ -14,9 +14,9 @@ end shifter;
 architecture arch of shifter is
 begin
 
-process(entrada)
-begin
+--process(entrada)
+--begin
 	saida <= entrada(0 to 29)&"00";
 
-end process;
+--end process;
 end arch;

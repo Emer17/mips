@@ -16,11 +16,11 @@ end somador_desloc;
 architecture arch of somador_desloc is
 begin
 
-process(clk)
-begin
-	if rising_edge(clk) then
+--process(clk)
+--begin
+--	if rising_edge(clk) then
 		saida <= A + B;
-	end if;
+--	end if;
 
-end process;
+--end process;
 end arch;

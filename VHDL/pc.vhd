@@ -15,15 +15,15 @@ end pc;
 architecture arch of pc is
 begin
 
-process(clk)
+process--(clk)
 begin
-if(clk'event and clk = '1')then
+--if(clk'event and clk = '1')then
    if(reset = '1')then
       saida <= "00000000000000000000000000000000";
    else
       saida <= entrada;
    end if;
-end if;
+--end if;
 
 end process;
 end arch;
