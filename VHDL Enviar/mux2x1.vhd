@@ -1,3 +1,5 @@
+--Marcelo e Emerson
+--Implementa o Mux 2x1 de 32 bits responsavel pela seleção dos valores da ula e do Banco de registradores
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;

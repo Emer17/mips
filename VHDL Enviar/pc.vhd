@@ -1,3 +1,5 @@
+--Marcelo e Emerson
+--Implementa o Contador de Programa responsavel por controlar a ordem em que as instruções são executadas
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;

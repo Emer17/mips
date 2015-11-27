@@ -1,3 +1,5 @@
+--Marcelo e Emerson
+--Implementa  a Memoria de Instruções que armazena ate 4 instruções
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;

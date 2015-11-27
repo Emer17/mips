@@ -1,3 +1,5 @@
+--Marcelo e Emerson
+--Implementa o extensor de sinal usado nas operações de tipo I e J
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;

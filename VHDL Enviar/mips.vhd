@@ -1,3 +1,5 @@
+--Marcelo e Emerson
+--Implementa o Mips com os port maps do BC e BOs
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
@@ -15,7 +17,7 @@ end mips;
 architecture arch of mips is
 --signal
 signal op1 : STD_LOGIC_VECTOR(0 to 5);
-signal inst1 : STD_LOGIC_VECTOR(0 to 5); --arrumar depois
+signal inst1 : STD_LOGIC_VECTOR(0 to 5);
 signal r1,w1,reg1,orig1 : bit;
 signal ula_op : STD_LOGIC_VECTOR (0 to 2);
 signal branch_bc : bit;

@@ -1,3 +1,5 @@
+--Marcelo e Emerson
+--Bloco de controle do mips responsavel pelos sinais de controle gerais do BO
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;

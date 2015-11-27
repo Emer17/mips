@@ -1,3 +1,5 @@
+--Marcelo e Emerson
+--Implementa a Ula e as operações de soma ,subtração e comparação
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;

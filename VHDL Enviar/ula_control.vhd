@@ -1,3 +1,5 @@
+--Marcelo e Emerson
+--Implementa o controle da Ula direcionando para a saida o valor referente a atual operação
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;

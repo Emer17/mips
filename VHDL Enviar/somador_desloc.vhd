@@ -1,3 +1,5 @@
+--Marcelo e Emerson
+--Implementa o somador do PC+4 com o resultado do Shifter
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
